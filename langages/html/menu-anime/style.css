@@ -1,5 +1,6 @@
 #menu ul li {
     list-style-type: none;
+    margin-bottom: 1px;
 }
 
 #menu ul li a {
@@ -20,6 +21,7 @@
 }
 
 #menu ul li a:hover {
-    background-color: #ff0000;
+    background-color: #003300;
     color: #fff;
+    width: 130px;
 }
