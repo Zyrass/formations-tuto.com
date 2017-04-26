@@ -1,0 +1,25 @@
+#menu ul li {
+    list-style-type: none;
+}
+
+#menu ul li a {
+    display: block;
+    background-color: #000;
+    color: #fff;
+    width: 120px;
+    padding: 10px;
+    text-decoration: none;
+    font-style: "Segoe UI", serif;
+    text-align: center;
+
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -o-transition: all .3s;
+    transition:  all .3s;
+
+}
+
+#menu ul li a:hover {
+    background-color: #ff0000;
+    color: #fff;
+}
