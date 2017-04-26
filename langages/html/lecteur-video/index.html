@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Lecteur vidéo HTML 5</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <h1>Balise VIDEO HTML 5</h1>
+        <p>Il faut savoir que le problème du format vidéo c'est qu'il prends énormément de place. En effet chaque ordinateur n'a pas forcément les bons codecs d'installer pour pouvoir décoder une vidéo. Aisni nous sommes dans l'obligations d'encoder la vidéo dans plusieurs formats afin de visualiser son contenu.<br />
+        A savoir que le <time datetime="2010-05-19">19/05/2010</time> le format WEBM est annoncé. Il permet ainsi de proposer un format multimédia ouvert. Mais surtout il est conçus principalement pour un usage sur le web. Et donc vous comprendrez qu'on y gagnera énormément en place en ne proposant qu'une vidéo encoder au format webM avec une compression tel qu'on gagne énormément en place... Avant.. plusieurs vidéos avec des formats différents... nous n'étions jamais sur que l'ordinateur cible serait succeptible de lire la vidéo.<br />
+        Lien vers un convertisseur de vidéo MP4 en WEBM : <a href="https://convertio.co/fr/mp4-webm/">https://convertio.co/fr/mp4-webm/</a></p>
+
+        <h2>La base de la balise video</h2>
+        <video width="560" height="315" controls poster="video/Black_Keys.jpg">
+            <!-- Si ce message apparaît, c'est que votre navigateur ne peut pas lire la vidéo -->
+            Votre navigateur ne permet pas de lire les vidéos...
+            <source src="video/Black_Keys.mp4" type="video/mp4">
+            <source src="video/Black_Keys.ogv" type="video/ogv">
+            <source src="video/Black_Keys.webm" type="video/webm">
+        </video>
+
+        <h2>Les attributs de la balise video</h2>
+        <ul>
+            <li><strong>controls</strong> Permet d'avoir une barre de contrôle</li>
+            <li><strong>preload="auto"</strong> Si la personne ne regarde pas la vidéo, il est inutile de recharger cette dernière.</li>
+            <li><strong>preload="auto" autobuffer</strong> Équivalent que précédemment mais pour firefox.</li>
+                <ul>
+                    <li><strong>none</strong> la vidéo ne doit pas être préchargée.</li>
+                    <li><strong>metadata</strong> seules les métadonnées de la vidéo (sa durée par exemple) sont récupérées.</li>
+                    <li><strong>auto</strong> Le fichier entier peut être télécharger même si l'utilisateur ne l'utilise pas.</li>
+                    <li><strong>une chaine de caractère vide</strong> Synonyme de valeur automatique</li>
+                </ul>
+            <li><strong>autoplay="true"</strong> Permet de lancer automatiquement la vidéo au chargement de la page.</li>
+            <li><strong>poster="toto.png"</strong> Permet d'afficher une image au lieu d'un écran noir</li>
+            <li><strong>loop="true"</strong> Permet de jouer la vidéo en boucle.</li>
+            <li><strong>muted="true"</strong> Permet de couper le son de la vidéo à son lancement.</li>
+        </ul>
+        
+        <h2>Exemple d'une vidéo avec des sous-titres</h2>
+        <pre>
+            &lt;video src="toto.webm"&gt;
+                &lt;track kind="subtitles" src="toto.en.vtt" srclang="en" label="Anglais"&gt;
+                &lt;track kind="subtitles" src="toto.sv.vtt" srclang="sv" label="Suédois"&gt;
+            &lt;/video&gt;
+        </pre>
+        <h3>La balise track permet via des attributs d'ajouter des sous-titres.</h3>
+        <ul>
+            <li><strong>default</strong> Cet attribut booléen indique que c'est cette piste qui doit être activée par défaut, sauf si les réglages de l'utilisateur indiquent qu'une autre piste est plus appropriée. Pour un élément média donné, il ne peut y avoir qu'une seule piste avec cet attribut.</li>
+            <li><strong>kind</strong>La façon dont la piste texte doit être utilisée. La valeur par défaut est subtitles et si la valeur fournie est incorrecte, l'agent utilisateur doit utiliser la valeur metadata. Cet attribut est un attribut à valeur contrainte qui peut prendre l'une des valeurs suivantes :</li>
+            <ul>
+                <li><strong>subtitles</strong></li>
+                    <ul>
+                        <li>Les sous-titres fournissent une traduction du contenu lorsqu'il ne peut pas être compris par l'utilisateur. La piste peut, par exemple, contenir le texte espagnol d'un film joué en anglais.</li>
+                        <li>Les sous-titres peuvent fournir du contenu supplémentaires, généralement des informations de contexte (par exemple, le texte qui défile au début d'un film Star Wars, la date ou le lieu d'une scène, etc.).</li>
+                    </ul>
+                <li><strong>captions</strong></li>
+                    <ul>
+                        <li>La piste est une retransciption voire une traduction de la partie audio dud média.</li>
+                        <li>La piste peut contenir des informations non-verbales importantes comme des indications musicales ou des effets sonores. La piste peut également indiquer la source du bruit (musique, personnage, etc.).</li>
+                        <li>Ce type de piste est adapté aux utilisateurs malentendants ou lorsque le son est désactivé.</li>
+                    </ul>
+                <li><strong>descriptions</strong></li>
+                    <ul>
+                        <li>La piste est une description textuelle du contenu vidéo.</li>
+                        <li>Ce type de piste est adapté aux personnes malvoyantes ou lorsque la vidéo ne peut pas être vue.</li>
+                    </ul>
+                <li><strong>chapters</strong></li>
+                    <ul>
+                        <li>Les titres de chapitre utilisés lorsque l'utilisateur navigue au sein du média.</li>
+                    </ul>
+                <li><strong>metadata</strong></li>
+                    <ul>
+                        <li>La piste est utilisé par des scripts, elle n'est pas visible pour l'utilisateur.</li>
+                    </ul>
+            </ul>
+            <li><strong>label</strong> Le titre associé à la piste et qui est affiché par le navigateur lorsque celui-ci liste les pistes disponibles.</li>
+            <li><strong>src</strong> L'adresse du fichier pour la piste (celle du fichier.vtt). Cet attribut doit être une URL valide et doit nécessairement être présent dans l'élément.</li>
+            <li><strong>srclang</strong> La langue dans laquelle est exprimée la piste textuelle. La valeur de cet attribut doit être une balise de langue BCP 47. Si l'attribut kind vaut subtitles, l'attribut srclang doit obligatoirement être défini. (fr pour france ; en pour anglais etc...)</li>
+        </ul>
+        
+        <h3>Un fichier .VTT ?</h3>
+        <p>Voici un extrait expliquant très bien le contenu d'un fichier.xx.vtt : <a href="https://fr.wikipedia.org/wiki/WebVTT">https://fr.wikipedia.org/wiki/WebVTT</a><br /><br />
+        <img src="img/4.png" alt="extrait du site wikipédia sur le .vtt"></p>
+
+        <h2>Importer une video de youtube</h2>
+        <p>Grâce à la balise iframe, on peut importer une video très simplement.<br />
+        Dans un premier temps, on se rends sur youtube, on choisit une vidéo quelconque, pour mon cas, se sera Dubstep Doux <br />
+        <img src="img/1.png" alt="première image"><br />
+        Ensuite, on clic sur <strong>Partager</strong>. Un nouveau menu apparaît : <br/>
+        <img src="img/2.png" alt="seconde image"><br />
+        Sur ce nouveau menu, sélectionnons <strong>Intégrer</strong>. Là vous allez avoir la balise iframe ainsi que le contenu de la video que vous voulez : <br />
+        <img src="img/3.png" alt="troisième image"><br />
+        Il ne vous reste plus qu'à la coller où bon vous semble dans votre code.</p>
+
+        <h3>Mon résultat final</h3>
+        <hr>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/_x1UNJtekd0" frameborder="0" allowfullscreen></iframe>
+    </body>
+</html>
