@@ -21,8 +21,57 @@
         <![endif]-->
         <h1>Introduction à l'animation dans un CANVAS</h1>
         <hr>
-        <canvas width="1000" height="450" class="myCanvas" id="canvasAnim">
+        <h2>First anim</h2>
+        <canvas width="600" height="450" class="myCanvas" id="canvasAnim">
             <p>Si ce message s'affiche, c'est que votre navigateur ne supporte pas la balise Canvas.</p>
         </canvas>
+
+        <script>
+            window.onload = init;
+
+            var canvas;
+            var context;
+
+            var posX        = 300;
+            var posY        = 225;
+            var velX        = 15; // Vel pour vélocité soit la vitesse
+            var velY    = 15;
+            var radius      = 25;
+
+            function init(){
+                canvas     = document.getElementById('canvasAnim');
+
+                context    = canvas.getContext('2d');
+
+                // Methode setInterval permet de répété une fonction toutes les X milliseconde.
+                // 1er paramètre - la fonction qu'on veut déclencher toutes les X milliseconde
+                // 2eme paramètre - le délai
+                setInterval(anim, 1000/30);
+            }
+
+            function anim(){
+                // context.clearRect() permet d'effacer le contenu du canvas
+                context.clearRect(0,0, canvas.width, canvas.height); // position en X, position en Y, la largeur du canvas, la hauteur du canvas
+                posX += velX; // Permet de décalé la position X de 5 à chaque fois.
+                posY += velY; // Permet de décalé la position Y de 5 à chaque fois.
+
+                if (posX - radius < 0 || posX + radius > canvas.width){
+                    velX = -velX;
+                }
+
+                if (posY + radius > canvas.height || posY - radius < 0) {
+                    velY = -velY;
+                }
+
+                context.fillStyle = '#669900';
+                context.beginPath();
+                context.arc(posX, posY, radius, 0, Math.PI*2, false);
+                context.fill();
+                context.closePath();
+            }
+
+            
+        </script>
+
     </body>
 </html>
