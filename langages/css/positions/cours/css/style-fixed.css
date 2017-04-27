@@ -1,0 +1,41 @@
+body {
+    height: 2000px;
+}
+
+.container {
+    width: 80%;
+    height: 250px;
+    background-color: #bdc3c7;
+    margin: auto;
+    margin-top: 150px;
+    margin-bottom: 10px;
+}
+
+.carre1, .carre2, .carre3, .carre4 {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    z-index: 999; /* très utile pour la navigation */
+}
+.carre1, .carre3 {
+    margin-left: 600px;
+}
+.carre2, .carre4 {
+    top: 400px;
+}
+.carre1 {
+    background-color: #3498db;
+    top: 0;
+}
+.carre2 {
+    right: 0;
+    background-color: #e74c3c;
+}
+.carre3 {
+    bottom: 0;
+    background-color: #27ae60;
+}
+.carre4 {
+    left: 0;
+    background-color: #f1c40f;
+}

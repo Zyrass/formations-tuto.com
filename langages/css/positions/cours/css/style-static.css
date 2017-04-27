@@ -1,0 +1,29 @@
+body {
+    font-family: "Segoe UI";
+}
+
+h1, h3 {
+    text-align: center;
+}
+
+.container1, .container2 {
+    width: 80%;
+    height: 250px;
+    background-color: #bdc3c7;
+    margin: 20px auto;
+    position: relative;
+}
+
+.carre1, .carre2 {
+    width: 150px;
+    height: 150px;
+}
+
+.carre1 {
+    background-color: #3498db;
+    position: absolute;
+}
+.carre2 {
+    background-color: #e74c3c;
+    position: static;
+}
