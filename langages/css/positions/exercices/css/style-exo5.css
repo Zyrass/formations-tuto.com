@@ -1,0 +1,28 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    height: 2000px;
+}
+h1 {
+    text-align: center;
+}
+header {
+    height: 50px;
+}
+nav {
+    height: 50px;
+    line-height: 50px;
+    background-color: #34495e;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    top: 0;
+    left: 0;
+}
+
+@media screen and (min-width:380px) and (max-width:480px) {
+    nav {
+        position: static;
+    }
+}

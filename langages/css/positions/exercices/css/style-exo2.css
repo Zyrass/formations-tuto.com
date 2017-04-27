@@ -1,0 +1,64 @@
+body {
+    padding: 20px;
+}
+h1 {
+    text-align: center;
+}
+
+h2 {
+    position: relative;
+}
+
+h2:before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 50px;
+    height: 5px;
+    background-color: #1abc9c;
+    bottom: -10px;
+}
+
+h3 {
+    text-align: center;
+    position: relative;
+}
+
+h3:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    background-image: url("../images/image.png");
+    width: 265px;
+    height: 116px;
+    /* -------------------------------------
+     * Première méthode 
+     * -------------------------------------
+    left: 50%;
+    transform: translateX(-50%);
+    top: 25px;
+     * ------------------------------------- */
+    
+    /* -------------------------------------
+     * Deuxième méthode
+     * ------------------------------------- */
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 25px;
+}
+
+.lien {
+    position: relative;
+    display: inline-block;
+    height: 35px;
+}
+
+.lien .fa-angle-down {
+    position: absolute;
+    z-index: 1;
+    width: 100%; /* Permet d'avoir la même taille que le parent soit .lien */
+    text-align: center;
+    left: 0;
+    top: 20px;
+}

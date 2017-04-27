@@ -1,0 +1,17 @@
+body {
+    padding: 20px;
+}
+h1 {
+    text-align: center;
+}
+
+ul li {
+    list-style-type: none;
+    position: relative;
+}
+
+ul li .fa {
+    position: absolute;
+    z-index: 1;
+    left: -30px;
+}
