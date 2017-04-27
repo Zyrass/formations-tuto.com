@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Introduction Canvas</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            /** ****************************************************************************************
+             * Bordure pour tout les canvas disposant de la classe "myCanvas"
+             ** **************************************************************************************** */
+            .myCanvas {
+                border: 1px solid #000;
+            }   
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <h1>Introduction Canvas</h1>
+        <hr>
+        <p>Je définis en premier une largeur de 600px, une hauteur de 450px. Je définis une bordure CSS pour tout les canvas.</p>
+        <p>Pour dessiner sur du canvas tout se fait en javascript.</p>
+        <h2>Canvas dessiner une image</h2>
+        <canvas width="1000" height="450" class="myCanvas" id="monImageDessiner">
+            Si ce message s'affiche, c'est que votre navigateur ne prends pas en charge la balise canvas...
+        </canvas>
+
+        <h2>Canvas dessiner un cercle</h2>
+        <canvas width="1000" height="450" class="myCanvas" id="myCircle">
+            Si ce message s'affiche, c'est que votre navigateur ne prends pas en charge la balise canvas...
+        </canvas>
+
+        <h2>Canvas dessiner un sourire basé sur le cercle</h2>
+        <canvas width="1000" height="450" class="myCanvas" id="mySmile">
+            Si ce message s'affiche, c'est que votre navigateur ne prends pas en charge la balise canvas...
+        </canvas>
+
+        <h2>Canvas dessiner le contraire du sourire basé sur le cercle.</h2>
+        <canvas width="1000" height="450" class="myCanvas" id="noSmile">
+            Si ce message s'affiche, c'est que votre navigateur ne prends pas en charge la balise canvas...
+        </canvas>
+
+        <h2>Arrondire le sourire en ajoutant un cercle au bout.</h2>
+        <canvas width="1000" height="450" class="myCanvas" id="smileArrondi">
+            Si ce message s'affiche, c'est que votre navigateur ne prends pas en charge la balise canvas...
+        </canvas>
+
+        <h2>Aggrandir le sourire avec un carré au bout.</h2>
+        <canvas width="1000" height="450" class="myCanvas" id="smileSquare">
+            Si ce message s'affiche, c'est que votre navigateur ne prends pas en charge la balise canvas...
+        </canvas>
+
+        <h2>Créer des ZIGZAG</h2>
+        <canvas width="1000" height="450" class="myCanvas" id="zigzag1">
+            Si ce message s'affiche, c'est que votre navigateur ne prends pas en charge la balise canvas...
+        </canvas>
+
+        <h2>Ajout d'une ligne au zigzag précédent</h2>
+        <canvas width="1000" height="450" class="myCanvas" id="zigzag2">
+            Si ce message s'affiche, c'est que votre navigateur ne prends pas en charge la balise canvas...
+        </canvas>
+
+        <h2>Canvas d'un rectangle</h2>
+        <canvas width="1000" height="450" class="myCanvas" id="rectangle1">
+            Si ce message s'affiche, c'est que votre navigateur ne prends pas en charge la balise canvas...
+        </canvas>
+
+        <h2>Même rectangle que précédemment mais centré cette fois ci.</h2>
+        <canvas width="1000" height="450" class="myCanvas" id="rectangle2">
+            Si ce message s'affiche, c'est que votre navigateur ne prends pas en charge la balise canvas...
+        </canvas>
+
+        <h2>Le remplissage d'une forme</h2>
+        <canvas width="1000" height="450" class="myCanvas" id="remplissage">
+            Si ce message s'affiche, c'est que votre navigateur ne prends pas en charge la balise canvas...
+        </canvas>
+
+        <script>
+            /** ****************************************************************************************
+             * Script pour dessiner du canvas
+             ** **************************************************************************************** */
+
+            // Exécuter les documents quand le document est chargé.
+            window.onload = init;
+
+            // Variable permettant de sélectionner le canvas.
+                // Canvas 1 à 6     = ARC / CERCLE
+                // Canvas 7 à 8     = ZIGZAG
+                // Canvas 9         = RECTANGLE
+            var canvas1;     
+            var canvas2;
+            var canvas3;
+            var canvas4;
+            var canvas5;
+            var canvas6;
+            var canvas7;
+            var canvas8;
+            var canvas9;
+            var canvas10;
+            var canvas11;
+            
+            // Variable permettant d'avoir le contenu du canvas.
+            var context1;
+            var context2;
+            var context3;
+            var context4;
+            var context5;
+            var context6;
+            var context7;
+            var context8;
+            var context9;
+            var context10;
+            var context11;
+
+            // Divers
+            var logo = new Image();
+            logo.src = "img/featured.png";
+
+            var degre = Math.PI/180;
+
+            function init(){
+                canvas1     = document.getElementById('monImageDessiner'); // On sélectionne l'id de notre canvas
+                canvas2     = document.getElementById("myCircle");
+                canvas3     = document.getElementById("mySmile");
+                canvas4     = document.getElementById("noSmile");
+                canvas5     = document.getElementById("smileArrondi");
+                canvas6     = document.getElementById("smileSquare");
+                canvas7     = document.getElementById('zigzag1');
+                canvas8     = document.getElementById('zigzag2');
+                canvas9     = document.getElementById('rectangle1');
+                canvas10    = document.getElementById('rectangle2');
+                canvas11    = document.getElementById('remplissage');
+
+                context1    = canvas1.getContext('2d');
+                context2    = canvas2.getContext('2d');
+                context3    = canvas3.getContext('2d');
+                context4    = canvas4.getContext('2d');
+                context5    = canvas5.getContext('2d');
+                context6    = canvas6.getContext('2d');
+                context7    = canvas7.getContext('2d');
+                context8    = canvas8.getContext('2d');
+                context9    = canvas9.getContext('2d');
+                context10   = canvas10.getContext('2d');
+                context11   = canvas11.getContext('2d');
+
+                // CANVAS 1
+                context1.drawImage(logo, 0, 0); // Permet de dessiner une image
+
+                // CANVAS 2
+                context2.strokeStyle = '#ff0000'; // La couleur du contour du cercle
+                context2.beginPath(); // Début du tracé via la méthode beginPath()
+                // position en X, position en Y, RADIUS, START_ANGLE (angle du début), END_ANGLE (angle de fin), CLOCKWISE (détermine si on dessine dans le sens d'une montre)
+                context2.arc(canvas2.width/2, canvas2.height/2, 150, 0, 360*degre, false);
+                context2.lineWidth = 5; // Permet de définir la largeur du tracé
+                context2.stroke();      // Permet de réaliser le tracé
+                context2.closePath();   // Fin du tracé via la méthode closePath()
+
+                // CANVAS 3
+                context3.strokeStyle = "#110000"
+                context3.beginPath();
+                context3.arc(canvas3.width/2, canvas3.height/2, 150, 0, 180*degre, false);
+                context3.lineWidth = 5;
+                context3.stroke();
+                context3.closePath();
+
+                // CANVAS 4
+                context4.strokeStyle = "#000999";
+                context4.beginPath();
+                context4.arc(canvas4.width/2, canvas4.height/2, 150, 0, 180*degre, true);
+                context4.lineWidth = 5;
+                context4.stroke();
+                context4.closePath();
+
+                // CANVAS 5
+                context5.strokeStyle = "#000044";
+                context5.beginPath();
+                context5.arc(canvas5.width/2, canvas5.height/2, 150, 0, 180*degre, false);
+                context5.lineWidth = 25;
+                context5.lineCap = "round"; // Ajoute un cercle au bout du tracé. La base du cercle étant le point du début ou de fin de line.
+                context5.stroke();
+                context5.closePath();
+
+                // CANVAS 6
+                context6.strokeStyle = "#000";
+                context6.beginPath();
+                context6.arc(canvas6.width/2, canvas6.height/2, 150, 0, 180*degre, false);
+                context6.lineWidth = 25;
+                context6.lineCap = "square"; // Ajoute un carré au bout du tracé tout comme round...
+                context6.stroke();
+                context6.closePath();
+
+                // CANVAS 7
+                context7.strokeStyle = "#444444";
+                context7.beginPath();
+                // position en X, position en Y,
+                context7.moveTo(40,40);
+                context7.lineTo(canvas7.width-40, 40);
+                context7.lineTo(40, canvas7.height-40);
+                context7.lineTo(canvas7.width-40, canvas7.height-40);
+                context7.lineWidth = 12;
+                context7.lineCap = 'round';
+                context7.stroke();
+                context7.closePath();
+
+                // CANVAS 8
+                context8.strokeStyle = "#999444";
+                context8.beginPath();
+                context8.moveTo(40,40);
+                context8.lineTo(canvas8.width-40, 40);
+                context8.lineTo(40, canvas8.height-40);
+                context8.lineTo(canvas8.width-40, canvas8.height-40);
+                    // Nouveau tracé
+                context8.moveTo(40, 60);
+                context8.lineTo(canvas8.width-130, 60);
+                    // Fin nouveau tracé
+                context8.lineWidth = 10;
+                context8.lineCap = 'round';
+                context8.stroke();
+                context8.closePath();
+
+                // CANVAS 9
+                context9.strokeStyle = '#440055';
+                context9.beginPath();
+                // position en X, position en Y, width, heigth
+                context9.rect(canvas9.width/2, canvas9.height/2, 200, 100);
+                context9.stroke();
+                context9.closePath();
+
+                // CANVAS 10
+                context10.strokeStyle = '#9900ff';
+                context10.beginPath();
+                    // -100 correspond à la moitié de 200 et -50 à la moitié de 100
+                context10.rect(canvas10.width/2 - 100, canvas10.height/2 - 50, 200, 100);
+                context10.lineWidth = 9;
+                context10.stroke();
+                context10.closePath();
+
+                // CANVAS 11
+                context11.strokeStyle = "#995511";
+                    // définition de la couleur du remplissage.
+                context11.fillStyle = "#556677";
+                context11.beginPath();
+                context11.rect(canvas11.width/2 - 200, canvas11.height/2 - 100, 400, 200)
+                context11.lineWidth = 10;
+                context11.stroke();
+                    // Remplissage avec .fill()
+                context11.fill();
+                context11.closePath();
+            }
+        </script>
+    </body>
+</html>
