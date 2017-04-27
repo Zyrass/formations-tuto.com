@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Création d'un lecteur audio en HTML5</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <h1>Création d'un lecteur audio en HTML5</h1>
+        <h2>Balise audio d'origine</h2>
+        <audio controls>
+            <source src="audio/JingleA.mp3" type="audio/mp3">
+            <source src="audio/JingleA.ogg" type="audio/ogg"> <!-- Pour les anciennent versions de firefox vu que le mp3 est enfin prit en compte -->
+        </audio>
+
+        <hr>
+        <h2>Balise personnel via des images</h2>
+        <audio id="lecteur">
+            <source src="audio/JingleA.mp3" type="audio/mp3">
+            <source src="audio/JingleA.ogg" type="audio/ogg">
+        </audio>
+
+        <img src="images/play.png" alt="bouton lecteur" onclick="document.getElementById('lecteur').play();">
+        <img src="images/pause.png" alt="bouton lecteur" onclick="document.getElementById('lecteur').pause();">
+        <img src="images/moins.png" alt="bouton lecteur" onclick="document.getElementById('lecteur').volume -= 0.1;">
+        <img src="images/plus.png" alt="bouton lecteur" onclick="document.getElementById('lecteur').volume += 0.1;">
+        
+    </body>
+</html>
